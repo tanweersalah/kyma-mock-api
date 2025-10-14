@@ -1,2 +1,173 @@
-This is test query data
-updated
+{
+"apiVersion": "gateway.kyma-project.io/v1beta1",
+"items": [
+    {
+        "apiVersion": "gateway.kyma-project.io/v1beta1",
+        "kind": "APIRule",
+        "metadata": {
+            "annotations": {
+                "kubectl.kubernetes.io/last-applied-configuration": {
+                    "apiVersion": "gateway.kyma-project.io/v1beta1",
+                    "kind": "APIRule",
+                    "metadata": {
+                        "annotations": {},
+                        "name": "restapi",
+                        "namespace": "kyma-app-apirule-broken"
+                    },
+                    "spec": {
+                        "gateway": "kyma-system/kyma-gateway",
+                        "host": "kyma-app-apirule-broken.c-5cb6076.stage.kyma.ondemand.com",
+                        "rules": [
+                            {
+                                "accessStrategies": [
+                                    {
+                                        "handler": "allow"
+                                    },
+                                    {
+                                        "handler": "jwt"
+                                    }
+                                ],
+                                "methods": [
+                                    "GET",
+                                    "POST"
+                                ],
+                                "path": "/.*"
+                            }
+                        ],
+                        "service": {
+                            "name": "restapi",
+                            "namespace": "kyma-app-apirule-broken",
+                            "port": 80
+                        }
+                    }
+                }
+            },
+            "creationTimestamp": "2024-09-12T14:19:04Z",
+            "finalizers": [
+                "gateway.kyma-project.io/subresources"
+            ],
+            "generation": 1,
+            "managedFields": [
+                {
+                    "apiVersion": "gateway.kyma-project.io/v1beta1",
+                    "fieldsType": "FieldsV1",
+                    "fieldsV1": {
+                        "f:metadata": {
+                            "f:annotations": {
+                                ".": {},
+                                "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                            }
+                        },
+                        "f:spec": {
+                            ".": {},
+                            "f:gateway": {},
+                            "f:host": {},
+                            "f:rules": {},
+                            "f:service": {
+                                ".": {},
+                                "f:name": {},
+                                "f:namespace": {},
+                                "f:port": {}
+                            }
+                        }
+                    },
+                    "manager": "kubectl-client-side-apply",
+                    "operation": "Update",
+                    "time": "2024-09-12T14:19:04Z"
+                },
+                {
+                    "apiVersion": "gateway.kyma-project.io/v1beta1",
+                    "fieldsType": "FieldsV1",
+                    "fieldsV1": {
+                        "f:metadata": {
+                            "f:finalizers": {
+                                ".": {},
+                                "v:\"gateway.kyma-project.io/subresources\"": {}
+                            }
+                        }
+                    },
+                    "manager": "manager",
+                    "operation": "Update",
+                    "time": "2024-09-12T14:19:04Z"
+                },
+                {
+                    "apiVersion": "gateway.kyma-project.io/v1beta1",
+                    "fieldsType": "FieldsV1",
+                    "fieldsV1": {
+                        "f:status": {
+                            ".": {},
+                            "f:APIRuleStatus": {
+                                ".": {},
+                                "f:code": {},
+                                "f:desc": {}
+                            },
+                            "f:accessRuleStatus": {
+                                ".": {},
+                                "f:code": {}
+                            },
+                            "f:lastProcessedTime": {},
+                            "f:observedGeneration": {},
+                            "f:virtualServiceStatus": {
+                                ".": {},
+                                "f:code": {}
+                            }
+                        }
+                    },
+                    "manager": "manager",
+                    "operation": "Update",
+                    "subresource": "status",
+                    "time": "2024-11-04T17:59:23Z"
+                }
+            ],
+            "name": "restapi",
+            "namespace": "kyma-app-apirule-broken",
+            "resourceVersion": "71301490",
+            "uid": "7bd25925-efc7-4f1c-a1f3-67cb45b585bc"
+        },
+        "spec": {
+            "gateway": "kyma-system/kyma-gateway",
+            "host": "kyma-app-apirule-broken.c-5cb6076.stage.kyma.ondemand.com",
+            "rules": [
+                {
+                    "accessStrategies": [
+                        {
+                            "handler": "allow"
+                        },
+                        {
+                            "handler": "jwt"
+                        }
+                    ],
+                    "methods": [
+                        "GET",
+                        "POST"
+                    ],
+                    "path": "/.*"
+                }
+            ],
+            "service": {
+                "name": "restapi",
+                "namespace": "kyma-app-apirule-broken",
+                "port": 80
+            }
+        },
+        "status": {
+            "APIRuleStatus": {
+                "code": "ERROR",
+                "desc": "Multiple validation errors: \nAttribute \".spec.rules[0].accessStrategies.accessStrategies[1].handler\": allow access strategy is not allowed in combination with other access strategies\nAttribute \".spec.rules[0].accessStrategies.accessStrategies[0].handler\": allow access strategy is not allowed in combination with other access strategies"
+            },
+            "accessRuleStatus": {
+                "code": "SKIPPED"
+            },
+            "lastProcessedTime": "2024-11-04T17:59:23Z",
+            "observedGeneration": 1,
+            "virtualServiceStatus": {
+                "code": "SKIPPED"
+            }
+        }
+    }
+],
+"kind": "APIRuleList",
+"metadata": {
+    "continue": "",
+    "resourceVersion": "71302033"
+}
