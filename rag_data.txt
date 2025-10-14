@@ -1,1 +1,21 @@
-This is test rag data
+## Unsupported Handlers' Combination
+### Cause  
+The following APIRule has both `allow` and `jwt` handlers defined on the same path:  
+```yaml
+spec:
+...
+rules:
+- path: /.*
+methods: ["GET"]
+accessStrategies:
+- handler: allow
+- handler: jwt
+config:
+trusted_issuers: ["https://dev.kyma.local"]
+```  
+The handlers' combination in the above example is not supported. If an APIRule has an unsupported handlers' combination defined **on the same path**, the following `APIRuleStatus` error appears:  
+```
+{"code":"ERROR","desc":"Validation error: Attribute \".spec.rules[0].accessStrategies.accessStrategies[0].handler\": allow access strategy is not allowed in combination with other access strategies"}
+```  
+### Remedy  
+Decide on one configuration you want to use. You can either `allow` access to the specific path or restrict it using the JWT security token. Defining both configuration methods on the same path is not allowed.
