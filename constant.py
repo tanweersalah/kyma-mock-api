@@ -1,4 +1,4 @@
 # constants.py
 
-QUERY_TOOL_URL = "https://example.com/query_tool.txt"
-RAG_TOOL_URL = "https://example.com/rag_tool.txt"
+QUERY_TOOL_URL = "https://raw.githubusercontent.com/tanweersalah/kyma-mock-api/refs/heads/main/query_data.txt"
+RAG_TOOL_URL = "https://raw.githubusercontent.com/tanweersalah/kyma-mock-api/refs/heads/main/rag_tool.txt"
