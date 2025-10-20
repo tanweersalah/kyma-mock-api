@@ -312,4 +312,132 @@
         "runtimeImage": "europe-docker.pkg.dev/kyma-project/prod/function-runtime-nodejs20:1.5.1"
     }
 }
-
+{
+    "apiVersion": "serverless.kyma-project.io/v1alpha2",
+    "items": [
+        {
+            "apiVersion": "serverless.kyma-project.io/v1alpha2",
+            "kind": "Function",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": {
+                        "apiVersion": "serverless.kyma-project.io/v1alpha2",
+                        "kind": "Function",
+                        "metadata": {
+                            "annotations": {},
+                            "name": "func1",
+                            "namespace": "kyma-serverless-function-no-replicas"
+                        },
+                        "spec": {
+                            "replicas": 0,
+                            "runtime": "nodejs20",
+                            "source": {
+                                "inline": {
+                                    "source": "module.exports = {\n  main: function(event, context) {\n    return 'Hello World!'\n  }\n}\n"
+                                }
+                            }
+                        }
+                    }
+                },
+                "creationTimestamp": "2024-09-12T14:19:18Z",
+                "generation": 1,
+                "managedFields": [
+                    {
+                        "apiVersion": "serverless.kyma-project.io/v1alpha2",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                                }
+                            },
+                            "f:spec": {
+                                ".": {},
+                                "f:replicas": {},
+                                "f:runtime": {},
+                                "f:source": {
+                                    ".": {},
+                                    "f:inline": {
+                                        ".": {},
+                                        "f:source": {}
+                                    }
+                                }
+                            }
+                        },
+                        "manager": "kubectl-client-side-apply",
+                        "operation": "Update",
+                        "time": "2024-09-12T14:19:18Z"
+                    },
+                    {
+                        "apiVersion": "serverless.kyma-project.io/v1alpha2",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:status": {
+                                ".": {},
+                                "f:buildResourceProfile": {},
+                                "f:conditions": {},
+                                "f:functionResourceProfile": {},
+                                "f:podSelector": {},
+                                "f:runtime": {},
+                                "f:runtimeImage": {}
+                            }
+                        },
+                        "manager": "manager",
+                        "operation": "Update",
+                        "subresource": "status",
+                        "time": "2024-11-08T04:20:26Z"
+                    }
+                ],
+                "name": "func1",
+                "namespace": "kyma-serverless-function-no-replicas",
+                "resourceVersion": "74099060",
+                "uid": "3410fa58-c6ec-4f06-99c3-4ed7e0b0e328"
+            },
+            "spec": {
+                "replicas": 0,
+                "runtime": "nodejs20",
+                "source": {
+                    "inline": {
+                        "source": "module.exports = {\n  main: function(event, context) {\n    return 'Hello World!'\n  }\n}\n"
+                    }
+                }
+            },
+            "status": {
+                "buildResourceProfile": "slow",
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2024-11-08T04:20:26Z",
+                        "message": "Deployment func1-hklrv is ready",
+                        "reason": "DeploymentReady",
+                        "status": "True",
+                        "type": "Running"
+                    },
+                    {
+                        "lastTransitionTime": "2024-09-12T14:19:43Z",
+                        "message": "Job func1-build-v4t2n finished",
+                        "reason": "JobFinished",
+                        "status": "True",
+                        "type": "BuildReady"
+                    },
+                    {
+                        "lastTransitionTime": "2024-09-12T14:19:18Z",
+                        "message": "ConfigMap func1-strr9 created",
+                        "reason": "ConfigMapCreated",
+                        "status": "True",
+                        "type": "ConfigurationReady"
+                    }
+                ],
+                "functionResourceProfile": "XS",
+                "podSelector": "serverless.kyma-project.io/function-name=func1,serverless.kyma-project.io/managed-by=function-controller,serverless.kyma-project.io/resource=deployment,serverless.kyma-project.io/uuid=3410fa58-c6ec-4f06-99c3-4ed7e0b0e328",
+                "runtime": "nodejs20",
+                "runtimeImage": "europe-docker.pkg.dev/kyma-project/prod/function-runtime-nodejs20:1.5.1"
+            }
+        }
+    ],
+    "kind": "FunctionList",
+    "metadata": {
+        "continue": "",
+        "resourceVersion": "74100905"
+    }
+}
